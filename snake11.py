@@ -17,7 +17,9 @@ stamp_list = []
 food_pos = []
 food_stamps=[]
 snake = turtle.clone()
-snake.shape("square")
+snake.shape("circle")
+snake.color("purple")
+
 turtle.hideturtle()
 
 for i in range(4):
@@ -81,6 +83,9 @@ def make_food():
      food_x = random.randint(min_x,max_x)*SQUARE_SIZE
      food_y = random.randint(min_y,max_y)*SQUARE_SIZE
      random_pos=(food_x,food_y)
+     if random_pos in pos_list:
+         make_food()
+         
      food.goto(food_x,food_y)
      food_pos.append(random_pos)
      stamp_id=food.stamp()
@@ -164,5 +169,3 @@ move_snake()
   #food.goto(this_food_pos)
  # new_food=food.stamp()
   #food_stamps.append(new_food)
-
- 
